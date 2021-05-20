@@ -1,7 +1,8 @@
+//copiar a colar no App() para rodar.
+
 import React from 'react';
 import { NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {createStackNavigator} from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 import Home from './src/pages/Home';
@@ -9,7 +10,6 @@ import Sobre from './src/pages/Sobre';
 import Informacao from './src/pages/Informacao';
 
 const Tab = createBottomTabNavigator();
-const Stack = createStackNavigator();
 
 const icons = {
   Home:{
@@ -23,8 +23,9 @@ const icons = {
   }
 }
 
-function Tabs() {
-  return (    
+export default function App() {
+  return (
+    <NavigationContainer>
       <Tab.Navigator
         screenOptions={({route})=>({
           tabBarIcon:({color, size})=> {
@@ -44,19 +45,10 @@ function Tabs() {
         }}
       >
         <Tab.Screen name="Home" component={Home}/>
-        <Tab.Screen name="Sobre" component={Sobre}/>        
+        <Tab.Screen name="Sobre" component={Sobre}/>
+        <Tab.Screen name="Informacao" component={Informacao}/>
       </Tab.Navigator>
-    
-  );
-}
-
-export default function App(){
-  return(
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name='Home' component ={Tabs} options = {{headerShown: false}}/>
-        <Stack.Screen name='Informacao' component ={Informacao}/>
-      </Stack.Navigator>
     </NavigationContainer>
   );
 }
+
