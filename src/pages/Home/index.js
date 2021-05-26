@@ -12,7 +12,11 @@ export default function Home(){
             <Button
                 title='Informacao'
                 onPress={()=> navigation.navigate('Informacao')}
-            />           
+            />    
+            <Button
+                title='ABrir Menu'
+                onPress={()=> navigation.toggleDrawer()}
+            />              
         </View>
     );
 }
